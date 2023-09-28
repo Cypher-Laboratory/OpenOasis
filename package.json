@@ -8,5 +8,19 @@
   },
   "keywords": [],
   "author": "@maximedgr",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomicfoundation/hardhat-verify": "^1.0.0",
+    "hardhat": "^2.14.0",
+    "hardhat-contract-sizer": "^2.9.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.2",
+    "@openzeppelin/hardhat-upgrades": "^1.26.0",
+    "dotenv": "^16.0.3",
+    "hardhat-gas-reporter": "^1.0.9"
+  }
 }

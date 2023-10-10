@@ -101,10 +101,12 @@ contract AliceRingToken is ERC721, ERC721URIStorage, Ownable {
      * @notice Verifies the token amounts for each address in the ring
      *
      * @param token - the erc20 address of the token we are proving the ownership of
+     * @param minBalance -  the minimum balance of this token required by an address
      * @param signature - the signature object
      */
     function verifyTokenAmounts(address token, uint256 minBalance, Signature memory signature)
         internal
+        view
         returns (bool)
     {
         // Check that all addresses in the ring own at least the minimal amount of tokens specified

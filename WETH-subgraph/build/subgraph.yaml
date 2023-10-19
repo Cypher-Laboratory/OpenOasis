@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: WrappedEther
@@ -21,7 +21,7 @@ dataSources:
         - Withdrawal
       abis:
         - name: WrappedEther
-          file: ./abis/WrappedEther.json
+          file: WrappedEther/abis/WrappedEther.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
@@ -33,4 +33,4 @@ dataSources:
           handler: handleTransfer
         - event: Withdrawal(indexed address,uint256)
           handler: handleWithdrawal
-      file: ./src/wrapped-ether.ts
+      file: WrappedEther/WrappedEther.wasm

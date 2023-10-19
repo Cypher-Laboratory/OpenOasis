@@ -1,6 +1,6 @@
 {
   "scroll-sepolia": {
-    "WETH9": {
+    "WrappedEther": {
       "address": "0x5300000000000000000000000000000000000004",
       "startBlock": 0
     }

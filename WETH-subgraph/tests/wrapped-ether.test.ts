@@ -8,19 +8,21 @@ import {
 } from "matchstick-as/assembly/index"
 import { Address, BigInt } from "@graphprotocol/graph-ts"
 import { Approval } from "../generated/schema"
-import { Approval as ApprovalEvent } from "../generated/WETH9/WETH9"
-import { handleApproval } from "../src/weth-9"
-import { createApprovalEvent } from "./weth-9-utils"
+import { Approval as ApprovalEvent } from "../generated/WrappedEther/WrappedEther"
+import { handleApproval } from "../src/wrapped-ether"
+import { createApprovalEvent } from "./wrapped-ether-utils"
 
 // Tests structure (matchstick-as >=0.5.0)
 // https://thegraph.com/docs/en/developer/matchstick/#tests-structure-0-5-0
 
 describe("Describe entity assertions", () => {
   beforeAll(() => {
-    let src = Address.fromString("0x0000000000000000000000000000000000000001")
-    let guy = Address.fromString("0x0000000000000000000000000000000000000001")
-    let wad = BigInt.fromI32(234)
-    let newApprovalEvent = createApprovalEvent(src, guy, wad)
+    let owner = Address.fromString("0x0000000000000000000000000000000000000001")
+    let spender = Address.fromString(
+      "0x0000000000000000000000000000000000000001"
+    )
+    let value = BigInt.fromI32(234)
+    let newApprovalEvent = createApprovalEvent(owner, spender, value)
     handleApproval(newApprovalEvent)
   })
 
@@ -38,19 +40,19 @@ describe("Describe entity assertions", () => {
     assert.fieldEquals(
       "Approval",
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "src",
+      "owner",
       "0x0000000000000000000000000000000000000001"
     )
     assert.fieldEquals(
       "Approval",
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "guy",
+      "spender",
       "0x0000000000000000000000000000000000000001"
     )
     assert.fieldEquals(
       "Approval",
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "wad",
+      "value",
       "234"
     )
 

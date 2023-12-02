@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package eth.tx_meta.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message TxMeta {
+  bytes hash = 1;
+  bytes pubkey = 2;
+  bytes from = 3;
+  bytes to = 4;
+  uint64 ordinal = 5;
+  bytes r = 6;
+  bytes s = 7;
+  bytes v = 8;
+}
